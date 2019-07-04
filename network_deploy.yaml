@@ -1,0 +1,44 @@
+#---
+#- name: Enable NX-API on NX-OS
+#  hosts: nxos
+#  connection: local
+#  gather_facts: false
+#
+#  roles:
+#    - nxos_nxapi
+#
+#- name: Configure Access Switches
+#  hosts: access
+#  connection: local
+#  gather_facts: false
+#
+#
+#
+#  roles:
+#    - nxos_vlans    
+#    - nxos_l3_interfaces
+#    - nxos_po_trunks
+#
+#- name: Configure Distribution Switches
+#  hosts: distribution
+#  connection: local
+#  gather_facts: false
+#  roles:
+#    - testuj
+#    - nxos_vlans
+#    - vpc
+#    - vpc_trunks
+#    - nxos_l3_interfaces
+#    - nxos_hsrp
+#    - nxos_ospf
+#
+- name: Configure Core Routers
+  hosts: core
+  connection: local
+  gather_facts: false
+  roles:
+    - enable_netconf
+    - netconf_loopback
+    - netconf_interfaces
+    - netconf_ospf
+   

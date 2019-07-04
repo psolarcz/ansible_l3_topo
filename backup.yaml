@@ -1,0 +1,7 @@
+- name: Backup config
+  hosts: nxos
+  connection: local
+  gather_facts: false
+
+  roles:
+    - backup

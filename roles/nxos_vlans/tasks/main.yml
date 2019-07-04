@@ -1,0 +1,8 @@
+---
+- name: Configure vlans
+  with_items: "{{vlans}}"
+  debugger: on_failed
+  nxos_vlan:
+    vlan_id: "{{item.id}}"
+    admin_state: up
+    name: "{{item.name}}"

@@ -1,0 +1,6 @@
+---
+- name: Test
+  with_items: "{{l3_interfaces}}"
+  debug:
+    msg: "Hops {{item.interface_type}}"
+  when: item.interface_type == "Ethernet"

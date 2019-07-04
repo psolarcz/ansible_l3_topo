@@ -1,0 +1,16 @@
+<config>
+  <interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
+    <interface>
+      <name>GigabitEthernet4</name>
+      <description>L3 Link to nx-osv9000-2</description>
+            <type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+            <enabled>true</enabled>
+      <ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip">
+        <address>
+          <ip>172.16.0.5</ip>
+          <netmask>255.255.255.252</netmask>
+        </address>
+      </ipv4>
+    </interface>
+  </interfaces>
+</config>

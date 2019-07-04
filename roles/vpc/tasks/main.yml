@@ -1,0 +1,39 @@
+---
+- name: Enable feature vpc and lacp
+  with_items:
+    - vpc
+    - lacp
+  nxos_feature:    
+    feature: "{{ item }}"
+    state: enabled
+
+- name: Configure VPC with delay restore and existing keepalive VRF
+  nxos_vpc:
+    domain: "{{vpc.domain}}"
+    peer_gw: true
+    pkl_src: "{{pkl_src}}"
+    pkl_dest: "{{pkl_dst}}"
+    auto_recovery: true
+    pkl_vrf: "{{vpc.pkl_vrf}}"
+
+
+- name: Configure peer-link port-channel
+  nxos_portchannel:
+    group: "{{vpc.port_channel.id}}"
+    members: "{{vpc.port_channel.members}}"
+    mode: 'active'
+    force: true
+    mode: on
+    state: present
+
+
+- name: Configure peer-link as trunk
+  nxos_switchport:
+    interface: "po{{vpc.port_channel.id}}"
+    mode: trunk
+
+- name: Configure peer-link
+  nxos_vpc_interface:
+    portchannel: "{{vpc.port_channel.id}}"
+    peer_link: true
+    

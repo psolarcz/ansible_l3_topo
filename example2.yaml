@@ -1,0 +1,11 @@
+---
+- name: GET NSD version
+  hosts: nsd
+  connection: local
+
+
+  tasks:
+    - debug:
+        msg: "System {{ vars | to_json }}"
+
+  

@@ -1,0 +1,26 @@
+[ios]
+172.21.51.245 ansible_user=admin  ansible_ssh_pass=admin
+
+[nx]
+172.21.51.244 ansible_user=admin  ansible_ssh_pass=Qwert6
+
+
+[iosxe:children]
+core
+
+[nxos:children]
+distribution
+access
+
+[core]
+172.21.61.206 ansible_user=admin  ansible_ssh_pass=admin
+172.21.61.207 ansible_user=admin  ansible_ssh_pass=admin
+
+[distribution]
+172.21.61.212 ansible_user=admin  ansible_ssh_pass=admin
+172.21.61.210 ansible_user=admin  ansible_ssh_pass=admin
+
+
+
+[access]
+172.21.61.211 ansible_user=admin  ansible_ssh_pass=admin

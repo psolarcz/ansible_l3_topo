@@ -1,0 +1,30 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/ned/ios">
+    <router>
+      <ospf>
+        <id>1</id>
+        <router-id>192.168.1.2</router-id>
+                <network>
+          <ip>172.16.0.12</ip>
+          <mask>0.0.0.3</mask>
+          <area>0</area>
+        </network>
+                <network>
+          <ip>172.16.0.8</ip>
+          <mask>0.0.0.3</mask>
+          <area>0</area>
+        </network>
+                <network>
+          <ip>172.16.0.16</ip>
+          <mask>0.0.0.3</mask>
+          <area>0</area>
+        </network>
+                <network>
+          <ip>192.168.1.2</ip>
+          <mask>0.0.0.0</mask>
+          <area>0</area>
+        </network>
+              </ospf>
+    </router>
+  </native>
+</config>

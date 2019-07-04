@@ -1,0 +1,10 @@
+<config>
+  <interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
+    <interface>
+      <name>Loopback0</name>
+      <description>Default Loopback</description>
+            <type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:softwareLoopback</type>
+            <enabled>true</enabled>
+         </interface>
+  </interfaces>
+</config>

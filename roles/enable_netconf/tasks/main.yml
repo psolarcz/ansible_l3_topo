@@ -1,0 +1,21 @@
+---
+- name: Configure NETCONF
+  tags: [api, netconf]
+  ios_config:
+    provider:
+      host: "{{inventory_hostname}}"
+      timeout: 100
+      
+      #authorize: yes
+      #auth_pass: cisco    
+    lines:
+      - netconf-yang
+      - netconf-yang cisco-odm polling-enable
+      - aaa authorization exec default local
+      # - restconf
+      # - ip http server
+      # - ip http secure-server
+
+- name: Pause for NETCONF to start
+  pause:
+    seconds: 45

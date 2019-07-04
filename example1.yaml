@@ -1,0 +1,19 @@
+---
+- name: Template Example
+  hosts: nx
+  connection: local
+  gather_facts: false
+
+
+  tasks:
+    - name: configure top level configuration and save it
+      nxos_config:
+        lines: feature nxapi
+
+    - name: Display show version
+      nxos_command:
+        commands: show feature
+      register: test
+    #- name: Print output
+    - debug:
+        var: test

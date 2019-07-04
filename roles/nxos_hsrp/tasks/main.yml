@@ -1,0 +1,13 @@
+---
+- name: Enable hsrp feature
+  nxos_feature:
+    feature: hsrp
+    state: enabled
+
+- name: Enable HSRP on interfaces
+  with_items: "{{hsrp}}"
+  nxos_hsrp:
+    group: "{{item.group}}"
+    vip: "{{item.vip}}"
+    interface: "{{item.interface}}"
+    preempt: enabled
